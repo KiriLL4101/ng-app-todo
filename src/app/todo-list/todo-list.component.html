@@ -1,0 +1,18 @@
+<div *ngIf="!loading">
+    <ul *ngIf="todosService.todos.length; else noTodos">
+        <li *ngFor="let todo of todosService.todos; index as i">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <p-checkbox [(ngModel)]="todo.completed" [binary]="true" ng-change="onChange(todo.id)"></p-checkbox>
+                </span>
+                <input type="text" pInputText placeholder="Username" [value]="todo.title">
+                <button pButton pRipple type="button" icon="pi pi-times" class="p-button-danger"
+                    (click)="removeTodo(todo.id)"></button>
+            </div>
+        </li>
+    </ul>
+    <ng-template #noTodos>
+        <p style="text-align: center;">No Todos</p>
+    </ng-template>
+</div>
+<p *ngIf="loading">Loading...</p>
