@@ -1,4 +1,5 @@
 <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="newTodo"> 
+    <input id="float-input" type="text" pInputText [(ngModel)]="title" (keydown.enter)="addTodo()"> 
     <label for="float-input">add todo</label>
+    <p-button icon="pi pi-plus" (click)="addTodo()"></p-button>
 </span>

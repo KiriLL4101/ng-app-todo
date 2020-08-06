@@ -12,7 +12,6 @@ export class TodoListComponent implements OnInit {
 
   public loading: boolean = true
 
-  private newTodo: string
 
   constructor(public todosService: TodosService) { }
 
