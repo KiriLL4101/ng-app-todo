@@ -10,19 +10,21 @@ export class AddTodoComponent implements OnInit {
 
   public title: string
 
-  constructor(private todoService:TodosService) { }
+  constructor(private todoService: TodosService) { }
 
   ngOnInit(): void {
   }
 
-  addTodo(){
-    const todo:Todo = {
-      title: this.title,
-      id: Date.now(),
-      completed:false
+  addTodo() {
+    if (this.title) {
+      const todo: Todo = {
+        title: this.title,
+        id: Date.now(),
+        completed: false
+      }
+      this.todoService.addTodo(todo)
+      this.title = ''
     }
-    this.todoService.addTodo(todo)
-    this.title = ''
   }
 
 }
