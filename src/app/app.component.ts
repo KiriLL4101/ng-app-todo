@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core'
+import { TodosService } from './state/todos.service'
+import { TodosQuery } from './state/todos.query'
+import { Observable } from 'rxjs'
+import { Todo } from './state/todo.model'
 
 
 @Component({
@@ -7,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-
-  ngOnInit() {
-
+  constructor(private todosService: TodosService, private todosQuery: TodosQuery) {
+    this.todosService.list()
   }
 
-  
+  todos$: Observable<Todo[]> = this.todosQuery.selectAll()
+  loading$: Observable<boolean> = this.todosQuery.selectLoading()
 
 
 }

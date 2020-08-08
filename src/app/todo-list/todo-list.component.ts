@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { TodosService } from '../shared/todos.service'
-import { SelectItem } from 'primeng/api';
+import { Component, Input } from '@angular/core'
+import { SelectItem } from 'primeng/api'
+import { Todo } from '../state/todo.model'
+import { TodosService } from '../state/todos.service'
 
 
 
@@ -9,38 +10,36 @@ import { SelectItem } from 'primeng/api';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss']
 })
-export class TodoListComponent implements OnInit {
-
-  public loading: boolean = true
-
+export class TodoListComponent {
 
   constructor(public todosService: TodosService) {
+
     this.cities = [
       { label: 'Все заметки', value: 'all' },
       { label: 'Активные', value: 'active' },
       { label: 'Завершенные', value: 'completed' }
-    ];
+    ]
 
-   }
-
-  cities: SelectItem[];
-
-
-  selectedCity: string;
-
-
-  ngOnInit() {
-    this.todosService.fetchTodos().subscribe(() => {
-      this.loading = false
-    })
   }
 
-  onChange(id: number) {
-    this.todosService.onToggle(id)
-  }
+  @Input() todos: Todo[]
+  @Input() loading: boolean
 
-  removeTodo(id: number) {
-    this.todosService.removeTodo(id)
-  }
+  cities: SelectItem[]
+
+
+  selectedCity: string
+
+
+  // ngOnInit() {
+  //   // this.todosService.fetchTodos().subscribe(() => {
+  //   //   this.loading = false
+  //   // })
+  // }
+
+  // onChange(id: number) {
+  //   this.todosService.onToggle(id)
+  // }
+
 
 }

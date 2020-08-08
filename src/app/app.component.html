@@ -4,7 +4,6 @@
     <app-add-todo></app-add-todo>
     <hr>
     <h2 class="title">Список заметок</h2>
-
-    <app-todo-list></app-todo-list>
+    <app-todo-list [todos]="todos$ | async"  [loading]="loading$" ></app-todo-list>
   </div>
 </div>

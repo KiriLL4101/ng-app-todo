@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "app-todo"
+  "defaultProject": "app-todo",
+  "cli": {
+    "defaultCollection": "@datorama/akita"
+  }
 }

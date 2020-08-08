@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Todo, TodosService } from '../shared/todos.service';
+import { Component } from '@angular/core';
+import { TodosService } from '../state/todos.service';
+import { Todo } from '../state/todo.model';
 
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
   styleUrls: ['./add-todo.component.scss']
 })
-export class AddTodoComponent implements OnInit {
+export class AddTodoComponent {
 
   public title: string
 
   constructor(private todoService: TodosService) { }
 
-  ngOnInit(): void {
-  }
 
   addTodo() {
     if (this.title) {
