@@ -44,17 +44,7 @@
       true,
       140
     ],
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
-      }
-    ],
+   
     "no-console": [
       true,
       "debug",

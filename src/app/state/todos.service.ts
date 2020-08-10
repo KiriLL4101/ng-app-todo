@@ -22,10 +22,15 @@ export class TodosService {
     this.store.setLoading(false)
   }
 
+  changeFilter(filter: string = 'all'): void{
+    this.store.update({
+      ui: {
+        filter
+      }
+    })
+  }
 
-
-  // tslint:disable-next-line:typedef
-  onToggle(id: number) {
+  onToggle(id: number): void{
     this.store.update(id, entity => {
       return {
         completed: !entity.completed
@@ -33,13 +38,12 @@ export class TodosService {
     })
   }
 
-  // tslint:disable-next-line:typedef
-  removeTodo(id: number) {
+  removeTodo(id: number): void {
     this.store.remove(id)
   }
 
-  // tslint:disable-next-line:typedef
-  addTodo(todo: Todo) {
+
+  addTodo(todo: Todo): void {
     this.store.add(todo)
   }
 

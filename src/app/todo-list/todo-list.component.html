@@ -1,10 +1,6 @@
-<div class="filters">
-    <span>Показывать</span>
-    <p-dropdown [options]="cities" [(ngModel)]="selectedCity"></p-dropdown>
-</div>
 <div *ngIf="loading">
-    <ul *ngIf="todos.length; else noTodos">
-        <li *ngFor="let todo of todos | todosFilter:selectedCity; index as i">
+    <ul >
+        <li *ngFor="let todo of todos; index as i">
             <div class="p-inputgroup">
                 <span class="p-inputgroup-addon">
                     <p-checkbox [ngModel]="todo.completed" [binary]="true" (onChange)="todosService.onToggle(todo.id)"></p-checkbox>

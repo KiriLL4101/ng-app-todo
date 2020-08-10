@@ -7,8 +7,8 @@ export interface Todo {
 }
 
 
-export function createTodo(params: Partial<Todo>):Todo {
+export function createTodo(params: Partial<Todo>): Todo {
   return {
-    
+    ...params
   } as Todo
 }

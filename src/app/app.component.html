@@ -4,6 +4,11 @@
     <app-add-todo></app-add-todo>
     <hr>
     <h2 class="title">Список заметок</h2>
-    <app-todo-list [todos]="todos$ | async"  [loading]="loading$" ></app-todo-list>
+    <div class="filters">
+      <span>Показывать</span>
+      <p-dropdown [options]="notes" (onChange)="onChangeFilter($event)"></p-dropdown>
+    </div>
+    {{ todos$ | async | json}}
+    <app-todo-list [todos]="todos$ | async" [loading]="loading$"></app-todo-list>
   </div>
 </div>

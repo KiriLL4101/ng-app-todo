@@ -12,7 +12,11 @@ export interface TodosState extends EntityState<Todo> {}
 export class TodosStore extends EntityStore<TodosState> {
 
   constructor() {
-    super()
+    super({
+      ui: {
+        filter: 'all'
+      }
+    })
   }
 
 }

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { TodosService } from '../state/todos.service';
-import { Todo } from '../state/todo.model';
+import { Component } from '@angular/core'
+import { TodosService } from '../state/todos.service'
+import { Todo } from '../state/todo.model'
 
 @Component({
   selector: 'app-add-todo',
@@ -14,7 +14,7 @@ export class AddTodoComponent {
   constructor(private todoService: TodosService) { }
 
 
-  addTodo() {
+  addTodo(): void {
     if (this.title) {
       const todo: Todo = {
         title: this.title,
